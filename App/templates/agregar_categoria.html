@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'App/agregar_categoria.css' %}">
+    <title>Agregar Categoría</title>
+</head>
+<body>
+
+
+{% block content %} -->
+    <div class="Header">
+        <header>
+        <h1>AGREGAR CATEGORIA</h1>
+        </header>
+    </div>
+    <div class="description">
+        <h2>Aca vas a poder agregar la categoria para cada producto para que posteriormente sean almacenados</h2>
+    </div>
+    <!-- Contenido específico del formulario de agregar categoría -->
+    <form method="post" action="{% url 'agregar_categoria' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+<div class="boton-container">
+    <a class="home-a" href="{% url 'home' %}">
+        <button class="home" type="button">Ir a inicio</button>
+    </a>
+</div>
+{% endblock %}
+<footer>
+    <p>Derechos reservados 2023</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'App/base.css' %}">
+    <title>{% block title %}MiProyecto{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <div class="Header">
+        <header>
+        <h1>ChisteByte</h1>
+        </header>
+    </div>
+    <div class="parent">
+    <div class="description">
+        <h2>Bienvenido, gracias por visitarnos</h2>
+        <h3>Escoge la opcion que mas te guste</h3>
+    </div>
+    </div>
+    <main>
+        <div class="container">
+        <nav>
+            <ul>
+                <li><a class= "nav-button" href="{% url 'agregar_categoria' %}">Agregar Categoría</a></li>
+                <li><a class= "nav-button" href="{% url 'agregar_producto' %}">Agregar Producto</a></li>
+                <li><a class= "nav-button" href="{% url 'agregar_cliente' %}">Agregar Cliente</a></li>
+                <li><a class= "nav-button" href="{% url 'buscar' %}">Buscar</a></li>
+            </ul>
+        </nav>
+    </div>
+    </main>
+   
+ {% endblock %}
+ <footer>
+    <p>Derechos reservados 2023</p>
+  </footer>
+</body>
+</html>

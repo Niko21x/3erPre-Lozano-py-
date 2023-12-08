@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(2, 2, 2);
+}
+.description h2 {
+    color: rgb(5, 5, 5);
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+.description h3 {
+    color: rgb(8, 8, 8);
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+}
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px
+   
+}
+.description {
+    background-color: #e6e7e9;
+    width: 800px;
+    justify-content: center;
+    height: 150px;
+    box-shadow: -1px -4px 20px 20px rgba(25, 1, 241, 0.781);
+}
+
+
+.Header {
+    max-width: 100%;
+    position: relative;
+    color: rgb(14, 13, 13);
+    text-align: center;
+    line-height: 100px;
+    text-decoration: line-through;
+    box-shadow: -1px -4px 20px 20px rgba(1, 205, 241, 0.781);
+}
+.Header h1 {
+    color: white;
+    font-weight: 800;
+
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  form {
+    color: rgb(248, 243, 243);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+    top: 50px;
+}
+form input, form button {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    
+}
+
+form input {
+    margin-left: 20px;
+}
+@keyframes buttonAnimation {
+    0% { background-color: #007BFF; }
+    50% { background-color: #0047b3; }
+    100% { background-color: #007BFF; }
+}
+
+form button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    animation: buttonAnimation 2s infinite;
+    margin-top: 50px;
+}
+
+@keyframes pressButtonAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+form button:active {
+    background-color: #b39200; 
+    animation: pressButtonAnimation 0.2s;
+}
+
+.boton-container {
+    display: flex;
+   margin-top: 150px;
+   justify-content: center;
+}
+.home {
+    background-color: rgb(0, 255, 255);
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+   
+    
+}

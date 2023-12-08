@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'App/agregar_producto.css' %}">
+    <title>Agregar Producto</title>
+</head>
+<body>
+
+{% block content %}
+    <div class="Header">
+        <header>
+        <h1>AGREGAR PRODUCTO</h1>
+        </header>
+    </div>
+    <div class="parent">
+    <div class="description">
+        <h2>Aca vas a poder agregar los tipos de de productos segun su categoria para que posteriormente sean almacenados</h2>
+    </div>
+    </div>
+    <!-- Contenido específico del formulario de agregar producto -->
+    <form method="post" action="{% url 'agregar_producto' %}">
+        {% csrf_token %}
+        {{ form.nombre.label_tag }} {{ form.nombre }}
+        {{ form.descripcion.label_tag }} {{ form.descripcion }}
+        {{ form.categoria.label_tag }} {{ form.categoria }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}
+
+<div class="boton-container">
+    <a class="home-a" href="{% url 'home' %}">
+        <button class="home" type="button">Ir a inicio</button>
+    </a>
+<footer>
+    <p>Derechos reservados 2023</p>
+  </footer>
+</body>
+</html>

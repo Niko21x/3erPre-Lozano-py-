@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "Entrega3_django"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
