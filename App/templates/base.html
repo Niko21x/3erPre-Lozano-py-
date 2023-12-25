@@ -24,15 +24,23 @@
         <div class="container">
         <nav>
             <ul>
-                <li><a class= "nav-button" href="{% url 'agregar_categoria' %}">Agregar Categoría</a></li>
-                <li><a class= "nav-button" href="{% url 'agregar_producto' %}">Agregar Producto</a></li>
-                <li><a class= "nav-button" href="{% url 'agregar_cliente' %}">Agregar Cliente</a></li>
-                <li><a class= "nav-button" href="{% url 'buscar' %}">Buscar</a></li>
+                <ul>
+                    <li><a class= "nav-button" href="{% url 'login' %}">Login</a></li>
+                    <li><a class= "nav-button" href="{% url 'signup' %}">Registro</a></li>
+                    <li><a class= "nav-button" href="{% url 'profile' %}">perfil</a></li>
+
+                </ul>
             </ul>
         </nav>
     </div>
     </main>
-   
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
  {% endblock %}
  <footer>
     <p>Derechos reservados 2023</p>

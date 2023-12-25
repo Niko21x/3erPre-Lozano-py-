@@ -71,6 +71,9 @@ form input {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    position: relative;
+    bottom: 90px;
+   
    
     
 }
@@ -107,4 +110,9 @@ form button {
 form button:active {
     background-color: #b39200; 
     animation: pressButtonAnimation 0.2s;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

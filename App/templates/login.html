@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'App/buscar.css' %}">
+    <title>Login</title>
+</head>
+<body>
+{% block content %}
+<div class="Header">
+    <header>
+    <h1>Tu cuenta, tu mundo. Accede para descubrirlo.</h1>
+    </header>
+</div>
+<div class="parent">
+<div class="description">
+    <h2>Bienvenido de nuevo. Ingresa y continua donde lo dejaste</h2>
+</div>
+</div>
+        <h2>Iniciar sesión</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Iniciar sesión</button>
+        </form>
+        <div class="boton-container">
+            <a class="home-a" href="{% url 'home' %}">
+                <button class="home" type="button">Ir a inicio</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+<footer>
+    <p>Derechos reservados 2023</p>
+  </footer>
+</body>
+</html>

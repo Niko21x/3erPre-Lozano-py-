@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -20,16 +21,20 @@
     <h2>Aca vas a poder  registrarte como cliente</h2>
 </div>
 </div>
-    <form method="post" action="{% url 'agregar_cliente' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
-    </form>
-    <div class="boton-container">
-    <a class="home-a" href="{% url 'home' %}">
-        <button class="home" type="button">Ir a inicio</button>
-    </a>
+<div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Registrarse</button>
+        </form>
+        <div class="boton-container">
+            <a class="home-a" href="{% url 'home' %}">
+                <button class="home" type="button">Ir a inicio</button>
+            </a>
+        </div>
+    </div>
 </div>
+
 {% endblock %}
 <footer>
     <p>Derechos reservados 2023</p>

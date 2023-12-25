@@ -1,66 +1,62 @@
 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 from django.shortcuts import render, redirect
-from .models import Categoria, Producto, Cliente
-from .forms import CategoriaForm, ProductoForm, ClienteForm
-from django import forms
 
 
 def home(request):
     return render(request, 'base.html')
 
-def agregar_categoria(request):
+def signup(request):
     if request.method == 'POST':
-        form = CategoriaForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('agregar_categoria')
+            user = form.save()
+            login(request, user)
+            return redirect('profile')
     else:
-        form = CategoriaForm()
-    return render(request, 'agregar_categoria.html', {'form': form})
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
 
-def agregar_cliente(request):
+
+
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+# from .models import Message
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+
+def login_view(request):
     if request.method == 'POST':
-        form = ClienteForm(request.POST)
+        form = AuthenticationForm(data=request.POST)
         if form.is_valid():
-            form.save()
-           
+            user = form.get_user()
+            login(request, user)
+            print(request.user)
+            print(request.session)
+
+   
+            return redirect('home')
     else:
-        form = ClienteForm()
-    return render(request, 'agregar_cliente.html', {'form': form})
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
 
-def agregar_producto(request):
-    if request.method == 'POST':
-        print(request.POST)
-        form = ProductoForm(request.POST)
-        if form.is_valid():
-            producto = form.save(commit=False)
-            producto.categoria, created = Categoria.objects.get_or_create(nombre='nombre_de_la_categoria_predeterminada')
-            producto.save()
-            form.save_m2m()
-    else:
-        form = ProductoForm()
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Profile
 
-    return render(request, 'agregar_producto.html', {'form': form})
+@login_required
+def profile(request):
+    try:
+        profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        messages.error(request, 'No tienes un perfil.')
+        return redirect('home')
+    return render(request, 'profile.html', {'profile': profile})
 
+# App/views.py
+from django.shortcuts import render
 
-
-class ProductoForm(forms.ModelForm):
-    class Meta:
-        model = Producto
-        fields = ['nombre', 'descripcion']  # Eliminamos 'categoria'
-        widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'nombre'}),
-            'descripcion': forms.Textarea(attrs={'class': 'descripcion'}),
-        }
-
-def buscar(request):
-    if request.method == 'POST':
-        buscar_texto = request.POST.get('buscar_texto')
-        categorias = Categoria.objects.filter(nombre__icontains=buscar_texto)
-        productos = Producto.objects.filter(nombre__icontains=buscar_texto)
-        clientes = Cliente.objects.filter(nombre__icontains=buscar_texto)
-        return render(request, 'buscar_resultados.html', {'categorias': categorias, 'productos': productos, 'clientes': clientes})
-    return render(request, 'buscar.html')
-
-
-
+def home(request):
+    return render(request, 'base.html')
