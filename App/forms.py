@@ -1,19 +1,26 @@
+from django import forms
+from django.contrib.auth.models import User
+from .models import Profile
+
+class UserCreationForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
 
 from django import forms
-from .models import Categoria, Producto, Cliente
+from .models import Profile
 
-class CategoriaForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):  # Cambia el nombre a ProfileForm
     class Meta:
-        model = Categoria
-        fields = ['nombre']
-        labels = {'nombre': 'Nombre de la categoria'}
+        model = Profile
+        fields = ['image', 'name', 'description', 'website']
 
-class ProductoForm(forms.ModelForm):
-    class Meta:
-        model = Producto
-        fields = ['nombre', 'descripcion', 'categoria']
+from django import forms
+from .models import Message
 
-class ClienteForm(forms.ModelForm):
+class MessageForm(forms.ModelForm):
     class Meta:
-        model = Cliente
-        fields = ['nombre', 'correo']
+        model = Message
+        fields = ['message']

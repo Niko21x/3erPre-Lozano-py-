@@ -1,17 +1,71 @@
 <!-- MiApp/templates/buscar_resultados.html -->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'App/base.css' %}">
     <title>Resultados de la Búsqueda</title>
 </head>
 <body>
-
 {% block content %}
-    <h1>Perfil de {{ profile.user.username }}</h1>
-    <p>Email: {{ profile.user.email }}</p>
-    <p>Fecha de registro: {{ profile.user.date_joined }}</p>
+<div class="Header">
+    <header>
+    <h1>ChisteByte</h1>
+    </header>
+</div>
+
+<div class="perfil">
+    <img class="perfil-imagen" src="{{ profile.image.url }}" alt="Profile image">
+    <h1 class="perfil-nombre">{{ profile.user.username }}</h1>
+    <p class="perfil-descripcion">{{ profile.description }}</p>
+
+    <div class="mensajes-container">
+        <div class="mensajes recibidos">
+            <h2>Mensajes recibidos</h2>
+            <ul class="lista-mensajes">
+                {% for message in received_messages %}
+                    <li>
+                        <h3>De: {{ message.sender.username }}</h3>
+                        <p>{{ message.message }}</p>
+                        <p>Recibido: {{ message.timestamp }}</p>
+                    </li>
+                {% empty %}
+                    <li>No has recibido ningún mensaje.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="mensajes enviados">
+            <h2>Mensajes enviados</h2>
+            <ul class="lista-mensajes">
+                {% for message in sent_messages %}
+                    <li>
+                        <h3>Para: {{ message.receiver.username }}</h3>
+                        <p>{{ message.message }}</p>
+                        <p>Enviado: {{ message.timestamp }}</p>
+                    </li>
+                {% empty %}
+                    <li>No has enviado ningún mensaje.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+ 
+    <div class="boton-container2">
+        <a class="home-a" href="{% url 'home' %}">
+            <button class="home" type="button">Ir a inicio</button>
+        </a>
+
+    <a href="{% url 'send_message' %}">
+        <button type="button">Enviar un mensaje</button>
+    </a>
+</div>
 {% endblock %}
+<footer class="footer_p">
+    <p>Derechos reservados 2023</p>
+</footer>
 </body>
 </html>

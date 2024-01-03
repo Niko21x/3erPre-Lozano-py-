@@ -33,6 +33,7 @@ body {
     border-radius: 5px;
     margin: 5px;
 }
+
 .description h2 {
     color: rgb(5, 5, 5);
     text-align: center;
@@ -75,6 +76,141 @@ body {
     font-weight: 800;
 
 }
+
+  .editp {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    line-height: 1.5;
+    
+  }
+
+  .boton-container {
+    display: flex;
+   justify-content: center;
+   margin-top: 10px;
+}
+
+
+.perfil {
+    text-align: center;
+    margin: 50px;
+}
+
+.perfil-imagen {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    color: white;
+    
+}
+
+.perfil-nombre {
+    color: #beaf22;
+    margin: 10px 0;
+}
+
+.perfil-descripcion {
+    color: #666;
+    margin: 0;
+}
+
+/* @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.perfil-nombre, .perfil-descripcion {
+    opacity: 0; /* Inicialmente oculto */
+    /* animation: fadeInUp 1s ease-out forwards; */
+
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 20px rgb(211, 177, 25);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(224, 10, 170, 0.8);
+    }
+}
+
+.perfil-nombre, .perfil-descripcion {
+    animation: glow 2s infinite;
+}
+
+
+.boton-container2 {
+    display: flex;
+   justify-content: center;
+   margin-top: 40px;
+   justify-content: space-around;
+}
+
+.mensajes-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 20px auto;
+   
+    
+}
+
+.mensajes {
+    width: 45%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.lista-mensajes {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-mensajes li {
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+h3 {
+    color: #555;
+}
+
+p {
+    color: #777;
+    margin: 5px 0;
+}
+
+.lista-mensajes li:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.lista-mensajes li:nth-child(odd) {
+    background-color: #fff;
+}
+
 footer {
     background-color: #333;
     color: white;
@@ -84,3 +220,80 @@ footer {
     bottom: 0;
     width: 100%;
   }
+
+.enviar-mensaje-container {
+    width: 60%;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.enviar-mensaje-titulo {
+    color: #333;
+    text-align: center;
+}
+
+.enviar-mensaje-form {
+    margin-top: 20px;
+}
+
+.enviar-mensaje-form input,
+.enviar-mensaje-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.enviar-mensaje-boton {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.enviar-mensaje-boton:hover {
+    background-color: #45a049;
+}
+
+.enviar-mensaje-volver {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.enviar-mensaje-volver:hover {
+    text-decoration: underline;
+}
+
+.boton-container2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-a {
+    text-decoration: none;
+}
+
+.home,
+.enviar-mensaje-home {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.home:hover,
+.enviar-mensaje-home:hover {
+    background-color: #2980b9;
+}

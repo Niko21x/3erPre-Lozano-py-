@@ -1,0 +1,46 @@
+<!-- MiApp/templates/buscar_resultados.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'App/base.css' %}">
+    <title>Resultados de la Búsqueda</title>
+</head>
+<body>
+
+<body>
+
+{% block content %}
+<div class="Header">
+    <header>
+    <h1>ChisteByte</h1>
+    </header>
+</div>
+
+<div class="enviar-mensaje-container">
+    <h1 class="enviar-mensaje-titulo">Enviar mensaje</h1>
+
+    <form class="enviar-mensaje-form" method="post">
+        <input type="text" name="receiver_id" placeholder="Enter receiver's ID">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="enviar-mensaje-boton">Enviar</button>
+    </input>
+
+    <a href="{% url 'profile' %}" class="enviar-mensaje-volver">Volver al perfil</a>
+
+    <div class="boton-container2">
+        <a href="{% url 'home' %}" class="home-a">
+            <button type="button" class="home enviar-mensaje-home">Ir a inicio</button>
+        </a>
+    </div>
+</div>
+{% endblock %}
+<footer class="footer_p">
+    <p>Derechos reservados 2023</p>
+</footer>
+</body>
+</html>
